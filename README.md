@@ -1,2 +1,2 @@
-# GroceryStoreV2
-Our very own grocery store version 2
+# groceryStore
+A repo for the grocery store project for JS
