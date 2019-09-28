@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding: 0%;
+}
+.boxItem {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:column; 
+    width:100%;
+    list-style: none;
+    
+}
+
+.boxItem img {
+    width:25%;
+    
+}
