@@ -19,7 +19,7 @@ const NAV_LIST = [
 //grab nav 
 const nav = document.querySelector('nav > ul');
 // const nav = document.getElementById('idNav');
-console.log(nav);
+// console.log(nav);
 
 //now to loop through nav list and append to nav, lets try it out:
 NAV_LIST.forEach( function (list)  {
@@ -32,7 +32,7 @@ NAV_LIST.forEach( function (list)  {
     nav.append(li);
 });
 
-let indexNav = document.getElementById(idNav)
+let indexNav = document.getElementById('idIndex')
 console.log(indexNav);
 
 

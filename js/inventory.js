@@ -324,3 +324,9 @@ let myelememt = document.getElementById('inventoryForm');
 myelememt.appendChild(thisForm);
 }
 alltogether();
+
+// testing for ?
+const perishableProduct = addProduce(true, '', 'Perishable Produce',3.24,'',5 )
+inventoryList.push(perishableProduct);
+console.log(inventoryList);
+
