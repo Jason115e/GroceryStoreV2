@@ -330,3 +330,8 @@ const perishableProduct = addProduce(true, '', 'Perishable Produce',3.24,'',5 )
 inventoryList.push(perishableProduct);
 console.log(inventoryList);
 
+let storeStorage = window.localStorage;
+
+storeStorage.setItem('persish', perishableProduct);
+console.log(storeStorage.getItem('perish'));
+
