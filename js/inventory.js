@@ -22,7 +22,8 @@ const inventorySchema = [
             salePrice: Number,
             savings: Number
         }],
-        quantity: Number
+        quantity: Number,
+        checked:Boolean
     }
 ];
 
@@ -51,6 +52,8 @@ function addProduce(organic, image, produce, price, percent, quantity) {
     }
     return newProduce;
 }
+
+
 //I will make a few produce
 //I will make a few produce
 const cherry = addProduce(true, '../img/001-cherry.png', 'Cherry', 2.90, 10, 5);
@@ -124,6 +127,11 @@ const makeAttributes = function (element, ...attributes) {
     return element;
 }
 
+// const makeEventListener = function(elementId){
+
+
+// };
+
 //create a function that will create the layout for each list, but before I can do that, I should make a glabl createElement w/ needed info for repeated use
 
 /*
@@ -153,8 +161,14 @@ function makeProduceCard(produce) {
     makeAttributes(image, ['src', `${produce.image}`], ['alt', `An image of a ${produce.produce}`]);
     const produceName = makeElement('span', '', 'lead', produce.produce);
     const price = makeElement('h5', '', '', `Price: $${produce.price}`);
+    
     const checkBox = makeElement('input', '','','');
-    makeAttributes(checkBox, ['type','checkbox']);
+    makeAttributes(checkBox, ['type','checkbox'], ['id', `check${produce.produce}`]);
+    // document.getElementById(`#check${produce.produce}`).addEventListener('click', function(){
+    //     console.log('Jello World');
+    // });
+
+
     if(produce.sale) {
         discountPrice = makeElement('h5', '', '', `Sale Price: $ ${produce.salePrice}`);
         savings = makeElement('h5', '', '', `Savings: $ ${produce.savings}`);
@@ -169,15 +183,24 @@ function makeProduceCard(produce) {
     return box;
 }
 
+
 const addInventoryToDOM = function (list) {
     const container = document.getElementById('inventoryList');
     for($i = 0; $i < list.length; $i++) {
         
         container.appendChild(makeProduceCard(list[$i]));
+        // document.getElementById(`checkCherry`).addEventListener('click', function(){
+        //     console.log('Jello World');
+        // });
     }
 }
 //Remember that array full of the produce I, you created? Well, now it serves here to loop through and append to the container. Done.
 addInventoryToDOM(inventoryList);
+
+// document.getElementById(`checkCherry`).addEventListener('click', function(){
+//     console.log('Jello World');
+// });
+
 
 
 //Form inventory
@@ -328,10 +351,14 @@ alltogether();
 // testing for ?
 const perishableProduct = addProduce(true, '', 'Perishable Produce',3.24,'',5 )
 inventoryList.push(perishableProduct);
+// console.log(perishableProduct);
 console.log(inventoryList);
 
-let storeStorage = window.localStorage;
 
-storeStorage.setItem('persish', perishableProduct);
-console.log(storeStorage.getItem('perish'));
+// let storeStorage = window.localStorage;
 
+// storeStorage.setItem('persish', perishableProduct);
+window.localStorage.setItem('perish', perishableProduct);
+// console.log(window.localStorage.getItem('perish'));
+
+//-----------------------------------

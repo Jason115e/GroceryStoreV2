@@ -32,7 +32,7 @@ NAV_LIST.forEach( function (list)  {
     nav.append(li);
 });
 
-let indexNav = document.getElementById('idIndex')
-console.log(indexNav);
+// let indexNav = document.getElementById('idIndex')
+// console.log(indexNav);
 
 
