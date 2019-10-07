@@ -163,7 +163,7 @@ function makeProduceCard(produce) {
     const price = makeElement('h5', '', '', `Price: $${produce.price}`);
     
     const checkBox = makeElement('input', '','','');
-    makeAttributes(checkBox, ['type','checkbox'], ['id', `check${produce.produce}`]);
+    makeAttributes(checkBox, ['type','checkbox'], ['id', `check${produce.produce}`],['class', 'check']);
     // document.getElementById(`#check${produce.produce}`).addEventListener('click', function(){
     //     console.log('Jello World');
     // });
@@ -189,20 +189,25 @@ const addInventoryToDOM = function (list) {
     for($i = 0; $i < list.length; $i++) {
         
         container.appendChild(makeProduceCard(list[$i]));
-        // document.getElementById(`checkCherry`).addEventListener('click', function(){
-        //     console.log('Jello World');
-        // });
+        
     }
 }
 //Remember that array full of the produce I, you created? Well, now it serves here to loop through and append to the container. Done.
 addInventoryToDOM(inventoryList);
 
-// document.getElementById(`checkCherry`).addEventListener('click', function(){
-//     console.log('Jello World');
-// });
+// function to add event listener to an element
 
+function eventadder (){
+    addEventListener('click',function(){
+        console.log('Jello World');
+    });
+};
 
+let addEvent = document.getElementsByClassName('check');
+// console.log(addEvent);
+addEvent.forEach(eventadder());
 
+// 
 //Form inventory
 //-----------begin mark ---------------------
 // 
@@ -354,11 +359,12 @@ inventoryList.push(perishableProduct);
 // console.log(perishableProduct);
 console.log(inventoryList);
 
-
-// let storeStorage = window.localStorage;
-
+// ---------------All below work correctly---------------
 // storeStorage.setItem('persish', perishableProduct);
-window.localStorage.setItem('perish', perishableProduct);
-// console.log(window.localStorage.getItem('perish'));
+// window.localStorage.setItem('perish', perishableProduct);
+// localStorage.perish = perishableProduct;
+
+// console.log(localStorage.getItem("perish"));
+// console.log(localStorage.perish);
 
 //-----------------------------------
