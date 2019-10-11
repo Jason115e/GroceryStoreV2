@@ -195,17 +195,35 @@ const addInventoryToDOM = function (list) {
 //Remember that array full of the produce I, you created? Well, now it serves here to loop through and append to the container. Done.
 addInventoryToDOM(inventoryList);
 
-// function to add event listener to an element
+// 
 
+
+// function to add event listener to an element
 function eventadder (){
     addEventListener('click',function(){
         console.log('Jello World');
     });
 };
 
-let addEvent = document.getElementsByClassName('check');
+let addEvent = []
+addEvent = document.getElementsByClassName('check');
+
+// document.getElementsByClassName("check").addEventListener(eventadder);
+
 // console.log(addEvent);
-addEvent.forEach(eventadder());
+// addEvent.forEach(eventadder());
+
+[].forEach.call(addEvent, function (el) {
+    
+    el.addEventListener('click',() => {
+        console.log(el.tagName);
+    })
+    
+});
+
+
+
+
 
 // 
 //Form inventory
