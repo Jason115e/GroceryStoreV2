@@ -195,30 +195,14 @@ const addInventoryToDOM = function (list) {
 //Remember that array full of the produce I, you created? Well, now it serves here to loop through and append to the container. Done.
 addInventoryToDOM(inventoryList);
 
-// 
-
-
-// function to add event listener to an element
-function eventadder (){
-    addEventListener('click',function(){
-        console.log('Jello World');
-    });
-};
-
-let addEvent = []
+// adds event listener and associated code. Running a forEach on the bare aray doesn't work because it's a html 
+// collection not an array. It must be 'called'.
 addEvent = document.getElementsByClassName('check');
 
-// document.getElementsByClassName("check").addEventListener(eventadder);
-
-// console.log(addEvent);
-// addEvent.forEach(eventadder());
-
 [].forEach.call(addEvent, function (el) {
-    
-    el.addEventListener('click',() => {
-        console.log(el.tagName);
-    })
-    
+        el.addEventListener('click',() => {
+            console.log(el.tagName);
+    })    
 });
 
 
@@ -386,3 +370,6 @@ console.log(inventoryList);
 // console.log(localStorage.perish);
 
 //-----------------------------------
+
+cherry.checked = true;
+console.log(cherry.checked);
