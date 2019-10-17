@@ -56,7 +56,7 @@ function addProduce(organic, image, produce, price, percent, quantity) {
 
 //I will make a few produce
 //I will make a few produce
-const cherry = addProduce(true, '../img/001-cherry.png', 'Cherry', 2.90, 10, 5);
+let cherry = addProduce(true, '../img/001-cherry.png', 'Cherry', 2.90, 10, 5);
 const bamboo = addProduce(true, '../img/002-bamboo.png', 'Bamboo', 1.99, '', 10);
 const peanut = addProduce(true, '../img/003-peanut.png', 'Peanut', 2.90, 10, 5);
 const pitaya = addProduce(true, '../img/004-pitaya.png', 'Pitaya', 1.99, '', 10);
@@ -196,14 +196,44 @@ const addInventoryToDOM = function (list) {
 addInventoryToDOM(inventoryList);
 
 // adds event listener and associated code. Running a forEach on the bare aray doesn't work because it's a html 
-// collection not an array. It must be 'called'.
+// collection not an array. It must be 'called' or prototyped.
 addEvent = document.getElementsByClassName('check');
+
+// 
+let totalSale = 0
+
+function isChecked(produce){
+    if (produce.checked = true) {
+        if(produce.sale = true){
+            totalSale += produce.sale;
+            console.log(produce.sale);
+        }else{
+            let totalSale = totalSale + produce.price;
+            // console.log(produce.price);
+        }
+    }
+}
+
 
 [].forEach.call(addEvent, function (el) {
         el.addEventListener('click',() => {
-            console.log(el.tagName);
-    })    
+        // console.log(el.tagName);
+        // inventoryList.forEach(isChecked);
+        // console.log('Total ' + totalSale);
+        // isChecked(el);
+        const idToProduce = el.id;
+        console.log(idToProduce);
+        let elProduce = idToProduce.slice(5);
+        console.log(elProduce);
+        elProduce = elProduce.toLowerCase();
+        console.log(elProduce);
+    })
+        
 });
+// console.log('Total ' + totalSale);
+
+// inventoryList.forEach(isChecked);
+
 
 
 
@@ -371,5 +401,26 @@ console.log(inventoryList);
 
 //-----------------------------------
 
-cherry.checked = true;
-console.log(cherry.checked);
+// cherry.checked = true;
+// console.log(cherry.checked);
+
+// -----I'm going to try to put this in the event listener------------------
+
+
+// let totalSale = 0
+
+// function isChecked(produce){
+//     if (produce.checked = true) {
+//         if(produce.sale = true){
+//             totalSale += produce.sale;
+//             // console.log(produce.sale);
+//         }else{
+//             let totalSale = totalSale + produce.price;
+//             // console.log(produce.price);
+//         }
+//     }
+// }
+
+// inventoryList.forEach(isChecked);
+
+// console.log('Total ' + totalSale);
