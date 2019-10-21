@@ -214,6 +214,11 @@ function isChecked(produce){
     }
 }
 
+let cart = [];
+
+function toCart(){
+    return elProduce;
+}
 
 [].forEach.call(addEvent, function (el) {
         el.addEventListener('click',() => {
@@ -222,11 +227,13 @@ function isChecked(produce){
         // console.log('Total ' + totalSale);
         // isChecked(el);
         const idToProduce = el.id;
-        console.log(idToProduce);
+        // console.log(idToProduce);
         let elProduce = idToProduce.slice(5);
-        console.log(elProduce);
+        // console.log(elProduce);
         elProduce = elProduce.toLowerCase();
         console.log(elProduce);
+        cart.push(inventoryList.filter(toCart));
+
     })
         
 });
